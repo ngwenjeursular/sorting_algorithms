@@ -8,10 +8,10 @@
  */
 void quick_sort(int *array, size_t size)
 {
-    if (array == NULL || size < 2)
-        return;
+	if (array == NULL || size < 2)
+		return;
 
-    quick_sort_recursive(array, 0, size - 1, size);
+	quick_sort_recursive(array, 0, size - 1, size);
 }
 
 /**
@@ -23,18 +23,16 @@ void quick_sort(int *array, size_t size)
  */
 void quick_sort_recursive(int *array, int low, int high, size_t size)
 {
-        int partition_index;
+	int partition_index;
 
-    if (low < high)
-    {
+	if (low < high)
+	{
+		partition_index = lomuto_partition(array, low, high, size);
 
-        partition_index = lomuto_partition(array, low, high, size);
-
-        quick_sort_recursive(array, low, partition_index - 1, size);
-        quick_sort_recursive(array, partition_index + 1, high, size);
-    }
+		quick_sort_recursive(array, low, partition_index - 1, size);
+		quick_sort_recursive(array, partition_index + 1, high, size);
+	}
 }
-
 
 /**
  * lomuto_partition - Partitions an array using the Lomuto scheme.
@@ -47,36 +45,35 @@ void quick_sort_recursive(int *array, int low, int high, size_t size)
  */
 int lomuto_partition(int *array, int low, int high, size_t size)
 {
-    int pivot, i, j, temp;
-        
-    pivot = array[high];
-    i = low;
+	int pivot, i, j, temp;
 
-    for (j = low; j <= high - 1; j++)
-    {
-        if (array[j] < pivot)
-        {
-                if (array[i] != array[j])
-                {
-                        temp = array[i];
-                        array[i] = array[j];
-                        array[j] = temp;
+	pivot = array[high];
+	i = low;
 
-                        print_array(array, size);
-                }
-                i++;
-        }
-    }
+	for (j = low; j <= high - 1; j++)
+	{
+		if (array[j] < pivot)
+		{
+			if (array[i] != array[j])
+			{
+				temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
 
-    if (array[i] != array[high])
-    {
-        temp = array[i];
-        array[i] = array[high];
-        array[high] = temp;
+				print_array(array, size);
+			}
+			i++;
+		}
+	}
 
-        print_array(array, size);
+	if (array[i] != array[high])
+	{
+		temp = array[i];
+		array[i] = array[high];
+		array[high] = temp;
 
-    }
-    
-    return (i);
+		print_array(array, size);
+	}
+
+	return (i);
 }
