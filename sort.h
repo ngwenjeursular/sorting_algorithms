@@ -26,6 +26,10 @@ void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
+void increase_sort(listint_t **ptr, listint_t **limit, listint_t **list);
+void decrease_sort(listint_t **ptr, listint_t **limit, listint_t **list);
+void swap_list(listint_t **ptr1, listint_t **ptr2, int n);
+void cocktail_sort_list(listint_t **list);
 
 /*Quick sort*/
 void quick_sort(int *array, size_t size);
