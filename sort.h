@@ -19,6 +19,9 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+#include <stdbool.h>
+#include <stddef.h>
+
 /*prototypes*/
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
@@ -34,4 +37,9 @@ int partition(int *array, int low, int high, size_t size);
 
 void quick_sort_recursive(int *array, int low, int high, size_t size);
 int lomuto_partition(int *array, int low, int high, size_t size);
+
+/*Cocktail shaker sort*/
+/*void swap_nodes(listint_t **list, listint_t *a, listint_t *b);*/
+void cocktail_sort_list(listint_t **list);
+listint_t *swap_nodes(listint_t *node, listint_t **head);
 #endif
