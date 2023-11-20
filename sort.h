@@ -30,6 +30,7 @@ void increase_sort(listint_t **ptr, listint_t **limit, listint_t **list);
 void decrease_sort(listint_t **ptr, listint_t **limit, listint_t **list);
 void swap_list(listint_t **ptr1, listint_t **ptr2, int n);
 void cocktail_sort_list(listint_t **list);
+void counting_sort(int *array, size_t size);
 
 /*Quick sort*/
 void quick_sort(int *array, size_t size);
